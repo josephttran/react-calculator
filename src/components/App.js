@@ -19,6 +19,7 @@ class App extends Component {
           <Button id="equals" label='=' />                
         </div>
         <div className="digit">
+          <Button id="zero" label='0' />
           <Button id="one" label='1' />
           <Button id="two" label='2' />
           <Button id="three" label='3' />
