@@ -37,6 +37,17 @@ class App extends Component {
 
   handleOpClick(op) {
     let formula = '';  
+   
+    if (this.state.prevValue === 0) {
+      formula = this.state.currValue + op;
+      this.setState((state) => ({prevValue: state.currValue}))
+    } 
+
+    if (this.state.lastClickIsOp) {
+      formula = this.state.formulaDisplay.slice(0, -1) + op;
+    } else {
+      formula = this.state.formulaDisplay + this.state.currValue + op;
+    }
 
     this.setState({
       formulaDisplay: formula,
@@ -76,9 +87,9 @@ class App extends Component {
         </div>
         <div className="operator">
           <Button id="add" label='+' handleClick={this.handleOpClick} />
-          <Button id="subtract" label='-'  />
-          <Button id="multiply" label='*' />
-          <Button id="divide" label='/' />
+          <Button id="subtract" label='-' handleClick={this.handleOpClick} />
+          <Button id="multiply" label='*' handleClick={this.handleOpClick} />
+          <Button id="divide" label='/' handleClick={this.handleOpClick} />
           <Button id="equals" label='=' />                
         </div>
         <div className="digit">
