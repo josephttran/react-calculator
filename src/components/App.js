@@ -34,7 +34,7 @@ class App extends Component {
 
       this.setState({
         currValue: output,
-        operator: '=',
+        operator: equals,
         formulaDisplay: expression + equals + output,
         lastClickIsOp: true
       });      
@@ -54,28 +54,35 @@ class App extends Component {
   handleDecimal = () => {
     let num = this.state.currValue;
 
-    if (num.toString().indexOf('.') === -1) {
-      num += '.';
-      this.setState({currValue: num})
+    if (this.state.operator === '=') {
+      this.clear();
+      num = '0.';
     }
+
+    if (this.state.lastClickIsOp) num = '0.';
+    if (num.toString().indexOf('.') === -1) num += '.';
+
+    this.setState({
+      currValue: num, 
+    })
   }
 
   handleNumberClick(i) {
     let val = this.state.currValue;
 
     if (this.state.operator === '=') this.clear();
-    if (this.state.lastClickIsOp) val = 0;
+    if (this.state.lastClickIsOp && val !== '0.') val = 0;
 
-    if (val === 0 && i === 0) {
-
-    } else if (val === 0 && i !== 0) {
-      this.setState({currValue: i});
+    if (val === 0) {
+      val = i;
     } else {
       val = val + i.toString();
-      this.setState({currValue: val});
     }
     
-    this.setState({lastClickIsOp: false});
+    this.setState({
+      currValue: val, 
+      lastClickIsOp: false
+    });
   }
 
   handleOpClick(op) {
