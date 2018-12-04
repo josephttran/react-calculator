@@ -36,6 +36,7 @@ class App extends Component {
         currValue: output,
         operator: '=',
         formulaDisplay: expression + equals + output,
+        lastClickIsOp: true
       });      
     }
   }
@@ -60,10 +61,10 @@ class App extends Component {
   }
 
   handleNumberClick(i) {
-    let val = this.state.currValue
-    if (this.state.lastClickIsOp) {
-      val = 0;
-    }
+    let val = this.state.currValue;
+
+    if (this.state.operator === '=') this.clear();
+    if (this.state.lastClickIsOp) val = 0;
 
     if (val === 0 && i === 0) {
 
@@ -78,18 +79,16 @@ class App extends Component {
   }
 
   handleOpClick(op) {
-    if (this.state.formulaDisplay.indexOf('=') > -1) {
+    let formula = '';
 
-    }
-
-    let formula = '';  
-   
     if (this.state.prevValue === 0) {
       formula = this.state.currValue + op;
       this.setState((state) => ({prevValue: state.currValue}))
-    } 
+    }
 
-    if (this.state.lastClickIsOp) {
+    if (this.state.lastClickIsOp && this.state.operator === '=') {
+      formula = this.state.currValue + op;
+    } else if (this.state.lastClickIsOp && this.state.operator !== '=') {
       formula = this.state.formulaDisplay.slice(0, -1) + op;
     } else {
       formula = this.state.formulaDisplay + this.state.currValue + op;
