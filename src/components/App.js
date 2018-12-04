@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import Display from './Display/Display';
 import Button from './Button/Button';
 import evaluate from '../util/evaluate';
 
@@ -108,6 +109,16 @@ class App extends Component {
     })
   }
 
+  renderButton(id, label, handle) {
+    return (
+      <Button
+        id={id}
+        value={label}
+        handleClick={handle}
+      />
+    )
+  }
+
   render() {
     return (
       <div className="App">
@@ -115,33 +126,33 @@ class App extends Component {
           Calculator
         </header>
         <div id="display">
-          <div className="formula">{this.state.formulaDisplay}</div>
-          <div className="input">{this.state.currValue}</div>
+          <Display id="formula" data={this.state.formulaDisplay} />
+          <Display id="input" data={this.state.currValue} />
         </div>
         <div className="operator">
-          <Button id="add" label='+' handleClick={this.handleOpClick} />
-          <Button id="subtract" label='-' handleClick={this.handleOpClick} />
-          <Button id="multiply" label='*' handleClick={this.handleOpClick} />
-          <Button id="divide" label='/' handleClick={this.handleOpClick} />
-          <Button id="equals" label='=' handleClick={this.calculate} />                
+          {this.renderButton("add",'+', this.handleOpClick)}
+          {this.renderButton("subtract", '-', this.handleOpClick)}
+          {this.renderButton("multiply", '*', this.handleOpClick)}
+          {this.renderButton("divide", '/', this.handleOpClick)}
+          {this.renderButton("equals", '=', this.calculate)}                
         </div>
         <div className="digit">
-          <Button id="zero" label={0} handleClick={this.handleNumberClick} />
-          <Button id="one" label={1}  handleClick={this.handleNumberClick} />
-          <Button id="two" label={2}  handleClick={this.handleNumberClick} />
-          <Button id="three" label={3}  handleClick={this.handleNumberClick} />
-          <Button id="four" label={4}  handleClick={this.handleNumberClick} />
-          <Button id="five" label={5}  handleClick={this.handleNumberClick} />
-          <Button id="six" label={6}  handleClick={this.handleNumberClick} />
-          <Button id="seven" label={7}  handleClick={this.handleNumberClick} />
-          <Button id="eight" label={8}  handleClick={this.handleNumberClick} />
-          <Button id="nine" label={9}  handleClick={this.handleNumberClick} />
+          {this.renderButton("zero", 0, this.handleNumberClick)}
+          {this.renderButton("one", 1, this.handleNumberClick)}
+          {this.renderButton("two", 2, this.handleNumberClick)}
+          {this.renderButton("three", 3, this.handleNumberClick)}
+          {this.renderButton("four", 4, this.handleNumberClick)}
+          {this.renderButton("five", 5, this.handleNumberClick)}
+          {this.renderButton("six", 6, this.handleNumberClick)}
+          {this.renderButton("seven", 7, this.handleNumberClick)}
+          {this.renderButton("eight", 8, this.handleNumberClick)}
+          {this.renderButton("nine", 9, this.handleNumberClick)}
         </div>
         <div className="decimal">
-          <Button id="decimal" label="." handleClick={this.handleDecimal} />
+          {this.renderButton("decimal", ".", this.handleDecimal)}
         </div>
         <div className="clear">
-          <Button id="clear" label="clear" handleClick={this.clear} />
+          {this.renderButton("clear", "clear", this.clear)}
         </div>
       </div>
     );
