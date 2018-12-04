@@ -1,0 +1,50 @@
+@import './variables.scss';
+
+.App {
+  text-align: center;
+  border: solid 1px black;  
+  width: 800px;
+  margin: auto;
+  margin-top: 20px;
+
+  .App-header {
+    background-color: $primary-color;
+    color: $secondary-color;  
+    min-height: 10vh;
+    font-size: calc(10px + 2vmin);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+#display {
+  background-color: $display-bg;
+  color: $display-color;
+  min-height: 10vh;
+  font-size: calc(10px + 2vmin);
+}  
+  #formula {
+    background-color: #333 !important;
+  }
+
+  #input {
+    min-height: 50vh;
+    background-color: #ddd;
+    color: black;
+  }
+
+.btn-container {
+  background-color: $btn-container-bg;
+  display: grid;
+  grid-template-columns: 1fr; 
+}
+
+#decimal {
+  font-size: 20px;
+}
+
+#clear {
+  background-color: red;
+}
