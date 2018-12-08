@@ -130,32 +130,24 @@ class App extends Component {
           <Display id="input" data={this.state.currValue} />
         </div>
         <div className="btn-container">
-          <div className="operator">
-            {this.renderButton("add",'+', this.handleOpClick)}
-            {this.renderButton("subtract", '-', this.handleOpClick)}
-            {this.renderButton("multiply", '*', this.handleOpClick)}
-            {this.renderButton("divide", '/', this.handleOpClick)}
-            {this.renderButton("equals", '=', this.calculate)}                
-          </div>
-          <div className="digit">
-            {this.renderButton("zero", 0, this.handleNumberClick)}
-            {this.renderButton("one", 1, this.handleNumberClick)}
-            {this.renderButton("two", 2, this.handleNumberClick)}
-            {this.renderButton("three", 3, this.handleNumberClick)}
-            {this.renderButton("four", 4, this.handleNumberClick)}
-            {this.renderButton("five", 5, this.handleNumberClick)}
-            {this.renderButton("six", 6, this.handleNumberClick)}
-            {this.renderButton("seven", 7, this.handleNumberClick)}
-            {this.renderButton("eight", 8, this.handleNumberClick)}
-            {this.renderButton("nine", 9, this.handleNumberClick)}
-          </div>
-          <div className="decimal">
-            {this.renderButton("decimal", ".", this.handleDecimal)}
-          </div>
-          <div className="clear">
-            {this.renderButton("clear", "clear", this.clear)}
-          </div>
-        </div>
+          {this.renderButton("add",'+', this.handleOpClick)}
+          {this.renderButton("subtract", '-', this.handleOpClick)}
+          {this.renderButton("multiply", '*', this.handleOpClick)}
+          {this.renderButton("divide", '/', this.handleOpClick)}
+          {this.renderButton("equals", '=', this.calculate)}
+          {this.renderButton("zero", 0, this.handleNumberClick)}
+          {this.renderButton("one", 1, this.handleNumberClick)}
+          {this.renderButton("two", 2, this.handleNumberClick)}
+          {this.renderButton("three", 3, this.handleNumberClick)}
+          {this.renderButton("four", 4, this.handleNumberClick)}
+          {this.renderButton("five", 5, this.handleNumberClick)}
+          {this.renderButton("six", 6, this.handleNumberClick)}
+          {this.renderButton("seven", 7, this.handleNumberClick)}
+          {this.renderButton("eight", 8, this.handleNumberClick)}
+          {this.renderButton("nine", 9, this.handleNumberClick)}
+          {this.renderButton("decimal", ".", this.handleDecimal)}
+          {this.renderButton("clear", "clear", this.clear)}
+      </div>
       </div>
     );
   }

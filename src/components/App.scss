@@ -1,17 +1,18 @@
 @import './variables.scss';
 
 .App {
-  text-align: center;
-  border: solid 1px black;  
-  width: 800px;
   margin: auto;
   margin-top: 20px;
+  max-width: 320px;
+  background-color: $primary-color;  
+  text-align: center;
+  border: solid 1px black;
 
   .App-header {
-    background-color: $primary-color;
-    color: $secondary-color;  
+    color: $secondary-color;
     min-height: 10vh;
     font-size: calc(10px + 2vmin);
+    border-bottom: solid 2px $secondary-color;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,31 +21,49 @@
 }
 
 #display {
+  margin: 5px;
   background-color: $display-bg;
   color: $display-color;
   min-height: 10vh;
   font-size: calc(10px + 2vmin);
-}  
-  #formula {
-    background-color: #333 !important;
-  }
-
-  #input {
-    min-height: 50vh;
-    background-color: #ddd;
-    color: black;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
 
 .btn-container {
+  padding: 5px;
   background-color: $btn-container-bg;
   display: grid;
-  grid-template-columns: 1fr; 
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: $btn-height;
+  grid-template-areas: 
+      "seven eight nine plus"
+      "four five six subtract"
+      "one two three multiply"
+      "zero zero decimal divide"
+      "clear clear equals equals";
+  grid-gap: 5px;     
+}
+  #zero{ grid-area: zero };
+  #one{ grid-area: one };
+  #two{ grid-area: two };
+  #three{ grid-area: three };
+  #four{ grid-area: four};
+  #five{ grid-area: five };
+  #six{ grid-area: six };
+  #seven{ grid-area: seven };
+  #eight{ grid-area: eight };
+  #nine{ grid-area: nine };
+  #plus{ grid-area: plus };
+  #subtract{ grid-area: subtract };
+  #multiply{ grid-area: multiply };
+  #divide{ grid-area: divide };
+  #clear{ grid-area: clear };
+  #equals{ grid-area: equals };
+  #decimal { grid-area: decimal; font-size: 20px; };
+
+#clear:hover {
+  background-color: $clear-hover;
 }
 
-#decimal {
-  font-size: 20px;
-}
-
-#clear {
-  background-color: red;
-}
