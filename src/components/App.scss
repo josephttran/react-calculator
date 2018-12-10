@@ -3,11 +3,10 @@
 .App {
   margin: auto;
   margin-top: 20px;
-  max-width: 320px;
+  width: 300px;
   background-color: $primary-color;  
-  text-align: center;
   border: solid 1px black;
-
+  
   .App-header {
     color: $secondary-color;
     min-height: 10vh;
@@ -22,14 +21,23 @@
 
 #display {
   margin: 5px;
+  padding: 0 5px;
   background-color: $display-bg;
-  color: $display-color;
-  min-height: 10vh;
-  font-size: calc(10px + 2vmin);
+  min-height: 8vh;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  text-align: right;
+  word-break: break-all;
 }
+  #formula {
+    color: $formula-color;
+    flex-grow: 1;
+  }
+  #input {
+    flex-grow: 1;    
+    color: $input-color;
+  }
 
 .btn-container {
   padding: 5px;

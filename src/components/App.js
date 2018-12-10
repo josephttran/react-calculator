@@ -126,7 +126,7 @@ class App extends Component {
           Calculator
         </header>
         <div id="display">
-          <Display id="formula" data={this.state.formulaDisplay} />
+          <Display id="formula" data={this.state.formulaDisplay ? this.state.formulaDisplay : <span>&nbsp;</span>} />
           <Display id="input" data={this.state.currValue} />
         </div>
         <div className="btn-container">
